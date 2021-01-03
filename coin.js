@@ -1,14 +1,8 @@
 const axios = require('axios');
 const fs = require('fs');
 
-// const rand = Math.round(Math.random()*1000);
-// const Http = new XMLHttpRequest();
 const url='https://www.coinspot.com.au/pubapi/latest';
-// Http.onreadystatechange = (e) => {
-//   console.log(Http.responseText)
-// }
 const coinInput = process.env.CRYPTO_COIN || 'ltc';
-// console.log(process.env);
 
 async function tester() {
 	return Math.round(Math.random()*1000);
@@ -16,7 +10,6 @@ async function tester() {
 const cwd = process.cwd();
 
 async function getCoin(coin) {
-	// const last = fs.readFileSync('/Users/garney/Projects/coin/previousLtc.json', 'utf8');
 	const fontSize = 14;
 
 	const data = fs.readFileSync(`${__dirname}/previous.json`,
@@ -28,7 +21,6 @@ async function getCoin(coin) {
 				font_size: fontSize,
 				icon_path: `${__dirname}/icons/${coin}.png`
 		}
-	// console.log(data);
 	try {
 		const res = await axios.get(url);
 		const bid = Number(res.data.prices[coin].bid).toFixed(2);
