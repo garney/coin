@@ -32,7 +32,7 @@ async function getCoin(coin) {
 			text: `${bid}`,
 				font_color: color,
 				font_size: fontSize,
-				icon_path: `${__dirname}/${coin}.png`
+				icon_path: `${__dirname}/icons/${coin}.png`
 		}
 		old[coin] = bid;
 		fs.writeFileSync(`${__dirname}/previous.json`, JSON.stringify(old))
